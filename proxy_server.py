@@ -13,21 +13,46 @@ def proxy(path):
     headers = {key: value for key, value in request.headers if key != 'Host'}
     data = request.get_data()
 
-    response = requests.request(
-        method,
-        url,
-        headers=headers,
-        data=data,
-        params=request.args,
-        cookies=request.cookies,
-        allow_redirects=False
-    )
+    try:
+        # Forward the request to the target server
+        response = requests.request(
+            method,
+            url,
+            headers=headers,
+            data=data,
+            params=request.args,
+            cookies=request.cookies,
+            allow_redirects=False  # Handle redirects manually
+        )
 
-    return Response(
-        response.content,
-        response.status_code,
-        response.headers.items()
-    )
+        # Prepare the response headers
+        response_headers = [
+            (key, value) for key, value in response.headers.items()
+            if key.lower() not in ['content-encoding', 'transfer-encoding', 'connection']
+        ]
+
+        # Handle redirects
+        if response.is_redirect:
+            # Forward the redirect response to the client
+            return Response(
+                response.content,
+                response.status_code,
+                response_headers
+            )
+
+        # Return the response from the target server
+        return Response(
+            response.content,
+            response.status_code,
+            response_headers
+        )
+
+    except requests.exceptions.RequestException as e:
+        # Handle exceptions (e.g., network errors)
+        return Response(
+            f"An error occurred: {e}",
+            status=500
+        )
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
