@@ -1,9 +1,19 @@
-# My-Python-Project-Template
+# Flask Proxy Server
+
+![Build Status](https://github.com/Chemically-Motivated-Solutions/flask-proxy-server/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://codecov.io/gh/Chemically-Motivated-Solutions/flask-proxy-server/branch/main/graph/badge.svg)
+![Dependencies](https://img.shields.io/librariesio/release/github/Chemically-Motivated-Solutions/flask-proxy-server)
+![License](https://img.shields.io/github/license/Chemically-Motivated-Solutions/flask-proxy-server)
+![Last Commit](https://img.shields.io/github/last-commit/Chemically-Motivated-Solutions/flask-proxy-server)
+![Release](https://img.shields.io/github/v/release/Chemically-Motivated-Solutions/flask-proxy-server)
+![Issues](https://img.shields.io/github/issues/Chemically-Motivated-Solutions/flask-proxy-server)
 
 ## Description
-A brief description of what this project does and who it's for.
+
+Creating a Flask-based proxy server in Python allows you to forward client requests to another server, enabling functionalities like load balancing, caching, or security filtering.
 
 ## Table of Contents
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -11,43 +21,8 @@ A brief description of what this project does and who it's for.
 - [Contact](#contact)
 
 ## Installation
+
 Step-by-step instructions on how to get the development environment set up.
 
 ```sh
 pip install -r requirements.txt
-```
-
-## Usage
-Instructions and examples for using the project.
-
-```sh
-python main.py
-```
-
-## Contributing
-Fork the repository: Click on the "Fork" button at the top right corner of the page.
-
-Clone your fork:
-```bash
-git clone https://github.com/yourusername/my-python-project-template.git
-```
-Create a new branch:
-```bash
-git checkout -b feature-branch
-```
-Make your changes:
-
-Commit your changes:
-```bash
-git commit -m "Description of your changes"
-```
-Push to your fork:
-```bash
-git push origin feature-branch
-```
-Create a pull request: Go to the original repository and click on "New Pull Request".
-
-## License
-Include information about the project's license.
-
-## Acknowledgments
